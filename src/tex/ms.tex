@@ -1,57 +1,162 @@
-% Define document class
-\documentclass[twocolumn]{aastex631}
+%\documentclass[referee]{aa} % for a referee version
+\documentclass[onecolumn]{aa} % for a paper on 1 column  
+%\documentclass[longauth]{aa} % for the long lists of affiliations 
+%\documentclass[letter]{aa} % for the letters 
+%\documentclass{aa}
+\usepackage{txfonts}
+\usepackage{natbib}
+\usepackage{lscape} % for the rotated longtable
+\usepackage{longtable}
+\usepackage{graphicx}
+
+\usepackage{lipsum}  
+
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,allcolors=[rgb]{0,0,0.8}}
+
+% the three lines suppress the hyperref 'link empty' warnings
+% explanation at: https://tex.stackexchange.com/questions/345764/journal-class-shows-package-hyperref-warning-suppressing-link-with-empty-targe
+\makeatletter
+\renewcommand*\aa@pageof{, page \thepage{} of \pageref*{LastPage}}
+\makeatother
 \usepackage{showyourwork}
 
-% Begin!
-\begin{document}
+\begin{document} 
 
-% Title
-\title{An open source scientific article}
+   \title{The Young Suns Exoplanet Survey}
 
-% Author list
-\author{@mkenworthy}
+   \author{M. Kenworthy
+          \inst{1}
+          \and
+          C. Ginski
+          \inst{2}
+          \and
+          Alex Bohn 
+          \inst{3}
+          \and
+          Eric Mamajek
+          \inst{4}
+          \and 
+          N.E.Others
+          \inst{4}
+          }
 
-% Abstract with filler text
-\begin{abstract}
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-    Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-    Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-    Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-    Phasellus eu tellus sit amet tortor gravida placerat.
-    Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-    Praesent eget sem vel leo ultrices bibendum.
-    Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-    Curabitur auctor semper nulla donec varius orci eget risus.
-    Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-    Duis eget orci sit amet orci dignissim rutrum.
-\end{abstract}
+   \institute{Leiden Observatory, University of Leiden,
+   PO Box 9513, 2300 RA Leiden, The Netherlands\\
+   \email{kenworthy@strw.leidenuniv.nl}
+         \and
+         Zurich address
+    \and
+    JPL
+    \and
+    Caltech/IPAC, 1200 E California Blvd, Mail Code 100-22, Pasadena, CA 91125, USA}
 
-% Main body with filler text
+   \date{Received XXXX; accepted XXXX}
+
+% \abstract{}{}{}{}{} 
+% 5 {} token are mandatory
+ 
+  \abstract
+  % context heading (optional)
+  % {} leave it empty if necessary  
+   {Finding planets is fun.}
+  % aims heading (mandatory)
+   {We want to determine the gas giant exoplanet formation rate around Sun-like stars.}
+  % methods heading (mandatory)
+   {Direct imaging in H and K, two epochs on large proper motion stars in the Sco-Cen association, common proper motion identification, follow up observations.}
+  % results heading (mandatory)
+   {We found at least four planets but at large semimajor axis distances. }
+  % conclusions heading (optional), leave it empty if necessary 
+   {We can find exoplanets, they are at much larger sma than we expected.}
+
+   \keywords{giant planet formation}
+
+   \maketitle
+%
+%-------------------------------------------------------------------
+
 \section{Introduction}
-\label{sec:intro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-Phasellus eu tellus sit amet tortor gravida placerat.
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-Praesent eget sem vel leo ultrices bibendum.
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-Curabitur auctor semper nulla donec varius orci eget risus.
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-Duis eget orci sit amet orci dignissim rutrum.
+Despite several remarkable exoplanet and brown dwarf discoveries by high-contrast imaging at high angular resolution in the past few years (e.g., Marois et al. 2008, 2010; Schmidt et al. 2008; Lagrange et al. 2010; Rameau et al. 2013; Bailey et al. 2014; Macintosh et al. 2015; Chauvin et al. 2017; Keppler et al. 2018; Haffert et al. 2019; Janson et al. 2019; Bohn et al. 2020a,b)
+there is an ongoing debate regarding the formation mechanisms that create these super-Jovian gas giants with semimajor axes greater than 10 au. It is unclear whether these companions have a star-like origin from a collapsing molecular cloud that is bro- ken up into fragments, creating planetary-mass objects similar to a stellar binary (Kroupa 2001; Chabrier 2003), or through for- mation in a circumstellar disk instead. The classical bottom-up framework postulates formation via core accretion by
 
-Nam dui ligula, fringilla a, euismod sodales, sollici- tudin vel, wisi.
-Morbi auctor lorem non justo, nam lacus libero, pretium at, lobortis vitae.
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna.
-Morbi ac orci et nisl hendrerit mollis, suspendisse ut massa, cras nec ante.
-Pellentesque a nulla cum sociis natoque penatibus et magnis dis parturient.
-Aliquam tincidunt urna, nulla ullamcorper vestibulum turpis.
-Pellentesque cursus luctus mauris \citep{Luger2021}.
+\section{Survey description}\label{sec:sample}
 
+SPHERE description.
+
+Selecting stars from Pecaut XXXX and selecting for mass, distance and proper motion.
+
+Strategy was two images in two filters with IRDIS, wait for a while, then take another image later on.
+
+
+\begin{figure}
+   \begin{centering}
+   \includegraphics[width=\hsize]{figures/table_chart.pdf}
+      \caption{Distribution of the YSES sample on the sky in Galactic coordinates.}
+      \label{fig:tablechart}
+      \script{plot_table_chart.py}
+      \end{centering}
+\end{figure}
+
+
+
+\lipsum[2-4]
+
+\section{Observations and data reduction}\label{sec:obs}
+\lipsum[2-4]
+
+
+
+\subsection{Using RDI and PCA for halo suppression}
+\lipsum[2-4]
+
+\subsection{Images and detected candidate companions}
+\lipsum[2-4]
+
+\section{Detected circumstellar companions}\label{sec:companions}
+\lipsum[2-4]
+
+TABLE XXXX Detected companion properties
+
+\lipsum[2-8]
+
+\section{Discussion}\label{sec:discuss}
+\lipsum[2-8]
+
+\section{Conclusions}\label{sec:conc}
+\lipsum[2-8]
+
+%\begin{figure}
+%   \centering
+%   \includegraphics[width=\hsize]{figures/asassn-21qj-gmk-sed-fit.png}
+%      \caption{VOSA fit to photometry of ASAS-SN J0815 by gmk}
+%         \label{fig:sed}
+%\end{figure}
+
+
+%------------------------
+\section{Conclusions}\label{sec:conclusion}
+
+   \begin{enumerate}
+      \item Lots of planets, quite the surprise...
+      \item Planet occurrence rate of YYYY
+   \end{enumerate}
+
+\begin{acknowledgements}
+This research made use of Astropy,\footnote{http://www.astropy.org} a community-developed core Python package for Astronomy \citep{astropy:2013, astropy:2018}, Python \citep{vanRossum95,Oliphant07}, Matplotlib \citep{Hunter07}, numpy \citep{Oliphant06,vanderWalt11} and SciPy \citep{Virtanen20}.
+\end{acknowledgements}
+
+\bibliographystyle{aa}
 \bibliography{bib}
+
+
+\longtab{
+\begin{landscape}
+\variable{output/table_targets.tex}
+\end{landscape}
+}
+
+
 
 \end{document}
